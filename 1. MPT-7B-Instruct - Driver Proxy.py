@@ -65,6 +65,7 @@ from huggingface_hub import snapshot_download
 
 dbutils.fs.mkdirs(os.environ['HF_HOME'])
 dbutils.fs.mkdirs(os.environ['TRANSFORMERS_CACHE'])
+dbutils.fs.mkdirs(os.environ['HF_DATASETS_CACHE'])
 
 # COMMAND ----------
 
