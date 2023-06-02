@@ -28,8 +28,8 @@ import requests
 
 # COMMAND ----------
 
-driver_proxy_api = 'https://e2-dogfood.staging.cloud.databricks.com/driver-proxy-api/o/0/0602-142013-7d6hsqz5/7777'
-cluster_id = '0602-142013-7d6hsqz5'
+driver_proxy_api = 'https://xxx.cloud.databricks.com/driver-proxy-api/o/0/xxx/7777'
+cluster_id = 'xxx'
 port = 7777
 
 # COMMAND ----------
