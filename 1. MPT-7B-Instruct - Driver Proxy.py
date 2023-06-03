@@ -28,7 +28,7 @@
   wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/libcusolver-dev-11-7_11.4.0.1-1_amd64.deb && \
   dpkg -i libcusolver-dev-11-7_11.4.0.1-1_amd64.deb
 %pip install ninja
-%pip install chromadb einops flash-attn==v1.0.3.post0 triton==2.0.0.dev20221202
+%pip install einops flash-attn==v1.0.3.post0 triton==2.0.0.dev20221202
 
 # COMMAND ----------
 
