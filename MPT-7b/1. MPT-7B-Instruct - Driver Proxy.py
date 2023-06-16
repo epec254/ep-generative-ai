@@ -88,6 +88,8 @@ snapshot_location = snapshot_download(repo_id="mosaicml/mpt-7b-instruct")
 
 # COMMAND ----------
 
+torch.cuda.empty_cache()
+
 # Initialize tokenizer and language model
 tokenizer = transformers.AutoTokenizer.from_pretrained(
   snapshot_location, padding_side="left")
@@ -96,16 +98,16 @@ tokenizer = transformers.AutoTokenizer.from_pretrained(
 config = transformers.AutoConfig.from_pretrained(
   snapshot_location, 
   trust_remote_code=True,
-  max_seq_len = 4096
-)
+  max_seq_len = 4096)
+
 # support for flast-attn and openai-triton is coming soon
-# if this fails, comment out this line.
-config.attn_config['attn_impl'] = 'triton'
+#config.attn_config['attn_impl'] = 'triton'
 
 model = transformers.AutoModelForCausalLM.from_pretrained(
   snapshot_location, 
   config=config,
   torch_dtype=torch.bfloat16,
+  revision="fb38c7169efd8a78c8e27e0a82cce74578100ee3", # of as 6/16
   trust_remote_code=True)
 
 model.to(device='cuda')
