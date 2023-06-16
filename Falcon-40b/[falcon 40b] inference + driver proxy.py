@@ -9,11 +9,20 @@
 
 # COMMAND ----------
 
-# MAGIC %pip install -q -U torch==2.0.*
+# MAGIC %pip install --upgrade torch==2.0.* einops
 
 # COMMAND ----------
 
 dbutils.library.restartPython()
+
+# COMMAND ----------
+
+# cache mpt-7b on DBFS to avoid re-download on restart of cluster
+
+%env TRANSFORMERS_CACHE=/dbfs/ep/cache
+%env HF_HOME=/dbfs/ep/cache
+%env HF_HUB_DISABLE_SYMLINKS_WARNING=TRUE
+%env HF_DATASETS_CACHE=/dbfs/ep/cache
 
 # COMMAND ----------
 
@@ -31,7 +40,14 @@ pipeline = transformers.pipeline(
     torch_dtype=torch.bfloat16,
     trust_remote_code=True,
     device_map="auto",
+    revision="1e7fdcc9f45d13704f3826e99937917e007cd975" # cached as of 6/16
 )
+
+model.to(device='cuda')
+
+model.eval()
+
+display('model loaded')
 
 # COMMAND ----------
 
@@ -104,7 +120,3 @@ port = {port}
 # COMMAND ----------
 
 app.run(host="0.0.0.0", port=port, debug=True, use_reloader=False)
-
-# COMMAND ----------
-
-
