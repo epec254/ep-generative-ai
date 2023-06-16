@@ -99,7 +99,8 @@ config = transformers.AutoConfig.from_pretrained(
   max_seq_len = 4096
 )
 # support for flast-attn and openai-triton is coming soon
-# config.attn_config['attn_impl'] = 'triton'
+# if this fails, comment out this line.
+config.attn_config['attn_impl'] = 'triton'
 
 model = transformers.AutoModelForCausalLM.from_pretrained(
   snapshot_location, 

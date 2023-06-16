@@ -2,7 +2,7 @@
 # MAGIC %md
 # MAGIC # Databricks: MPT-7B-Instruct
 # MAGIC
-# MAGIC Notebook 2 of 2: Call MPT-7B-Instruct hosted by a Driver Proxy
+# MAGIC Notebook 2 of 2: First, start the driver proxy for the model you want to access.  Then use this this notebook to access the model hosted by a Driver Proxy.
 # MAGIC
 # MAGIC This notebook can be run on any cluster type, but tested on 13.0 MLR i3 node.
 
