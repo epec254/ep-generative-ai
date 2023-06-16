@@ -1,9 +1,11 @@
 # Databricks notebook source
 # MAGIC %md
+# MAGIC # MPT-7B-Instruct
 # MAGIC
-# MAGIC # MPT-7B and LangChain
+# MAGIC This notebook enables you to run MPT-7B-Instruct on a Databricks cluster and expose the model to LangChain or API via [driver proxy](https://python.langchain.com/en/latest/modules/models/llms/integrations/databricks.html#wrapping-a-cluster-driver-proxy-app).
 # MAGIC
-# MAGIC This notebook enables you to run MPT-7B-Instruct on a Databricks cluster and expose the model to LangChain via [driver proxy](https://python.langchain.com/en/latest/modules/models/llms/integrations/databricks.html#wrapping-a-cluster-driver-proxy-app).
+# MAGIC ## Instance type required
+# MAGIC *Tested on* g5.8xlarge: 1 A10 GPUs
 # MAGIC
 # MAGIC Requires MLR 13.0+ and single node A10G GPU instance.
 
