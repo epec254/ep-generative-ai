@@ -43,10 +43,6 @@ pipeline = transformers.pipeline(
     revision="1e7fdcc9f45d13704f3826e99937917e007cd975" # cached as of 6/16
 )
 
-model.to(device='cuda')
-
-model.eval()
-
 display('model loaded')
 
 # COMMAND ----------
